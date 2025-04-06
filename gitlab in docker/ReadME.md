@@ -4,7 +4,7 @@ GitLab official docker image on docker hub https://hub.docker.com/r/gitlab/gitla
 
 docker run -p 80:80 gitlab/gitlab-ce
 
-Wait a couple of mins and then visit http://localhost:8000
+Wait a couple of mins and then visit http://localhost:80
 
 default user is root
 Get root password?
@@ -29,7 +29,7 @@ docker rm {CONTAINER_ID}
 
 And create GitLab container again
 
-docker run --port 8000:80 gitlab/gitlab-ce
+docker run --port 80:80 gitlab/gitlab-ce
 
 What! repos are lost?
 
@@ -58,5 +58,5 @@ delete GitLab container and re-create. Everything should be there as it was
 
 docker stop {CONTAINER_ID}
 docker rm {CONTAINER_ID}
-docker run -p 8000:80 -v ./gitlab/config:/etc/gitlab -v ./gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
+docker run -p 80:80 -v ./gitlab/config:/etc/gitlab -v ./gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
 
